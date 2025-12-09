@@ -1,0 +1,2594 @@
+/* ==========================================
+   PURPLE HYACINTH CAVE - Floral Fantasy
+   Cozy flowery cave with hyacinth blooms
+   ========================================== */
+
+/* ==========================================
+   FONTS - Elegant & Whimsical
+   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Quicksand:wght@400;600;700&display=swap');
+
+/* ==========================================
+   ANIMATIONS - Gentle Flower Magic
+   ========================================== */
+
+/* Gentle sway like flowers in breeze */
+@keyframes sway {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  25% { transform: translateX(-3px) rotate(-1deg); }
+  50% { transform: translateX(0) rotate(0deg); }
+  75% { transform: translateX(3px) rotate(1deg); }
+}
+
+/* Shimmer glitter effect */
+@keyframes shimmer {
+  0% { 
+    opacity: 0.3;
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateX(2px) translateY(2px);
+  }
+  100% { 
+    opacity: 0.3;
+    transform: translateX(0) translateY(0);
+  }
+}
+
+/* Glitter twinkle */
+@keyframes glitterTwinkle {
+  0%, 100% { 
+    opacity: 0.2;
+    filter: brightness(1);
+  }
+  25% {
+    opacity: 0.5;
+    filter: brightness(1.3);
+  }
+  50% {
+    opacity: 0.8;
+    filter: brightness(1.6);
+  }
+  75% {
+    opacity: 0.5;
+    filter: brightness(1.3);
+  }
+}
+
+/* Bloom animation */
+@keyframes bloom {
+  0% { 
+    transform: scale(0.8) rotate(-5deg);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: scale(1.1) rotate(5deg);
+    opacity: 1;
+  }
+  100% { 
+    transform: scale(1) rotate(0deg);
+    opacity: 0.9;
+  }
+}
+
+/* Soft glow */
+@keyframes softGlow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(138,43,226,0.3), 0 0 40px rgba(147,51,234,0.2);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(138,43,226,0.5), 0 0 60px rgba(147,51,234,0.4);
+  }
+}
+
+/* Sparkle effect */
+@keyframes sparkle {
+  0%, 100% { 
+    opacity: 0.3; 
+    transform: scale(0.8);
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.2);
+  }
+}
+
+/* Fade in gently */
+@keyframes gentleFadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================
+   BODY & BACKGROUND - Hyacinth Garden
+   ========================================== */
+body {
+  background: url('https://i.postimg.cc/zBhYjkZx/7727c85fa233c132349d8a4bbf7e0e42.webp') center center fixed !important;
+  background-size: cover !important;
+  font-family: 'Lora', serif !important;
+  color: #f3e5ff !important;
+  position: relative !important;
+  overflow-x: hidden !important;
+}
+
+/* Glitter shimmer overlay */
+body::before {
+  content: '' !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.4) 0%, transparent 2%),
+    radial-gradient(circle at 60% 70%, rgba(255,255,255,0.3) 0%, transparent 2%),
+    radial-gradient(circle at 80% 20%, rgba(192,132,252,0.5) 0%, transparent 2%),
+    radial-gradient(circle at 40% 80%, rgba(255,255,255,0.4) 0%, transparent 2%),
+    radial-gradient(circle at 90% 60%, rgba(192,132,252,0.4) 0%, transparent 2%),
+    radial-gradient(circle at 15% 85%, rgba(255,255,255,0.3) 0%, transparent 2%),
+    radial-gradient(circle at 70% 40%, rgba(192,132,252,0.5) 0%, transparent 2%),
+    radial-gradient(circle at 30% 50%, rgba(255,255,255,0.4) 0%, transparent 2%) !important;
+  background-size: 200% 200% !important;
+  background-position: 0% 0% !important;
+  opacity: 0.6 !important;
+  animation: shimmer 3s ease-in-out infinite, glitterTwinkle 4s ease-in-out infinite !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  filter: blur(1px) !important;
+}
+
+/* Soft purple glow overlay */
+body::after {
+  content: '' !important;
+  position: fixed !important;
+  top: -100% !important;
+  left: -100% !important;
+  width: 300% !important;
+  height: 300% !important;
+  background: 
+    radial-gradient(circle at 30% 40%, rgba(147,51,234,0.15), transparent 40%),
+    radial-gradient(circle at 70% 60%, rgba(192,132,252,0.12), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(138,43,226,0.1), transparent 35%) !important;
+  animation: sway 15s ease-in-out infinite !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+/* ==========================================
+   DECORATIVE HYACINTH ELEMENTS
+   Corner decorations
+   ========================================== */
+body #flowerDecor {
+  position: fixed !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  width: 300px !important;
+  height: 300px !important;
+  background: url('https://i.postimg.cc/DZN0TvVT/hyacinth-corner.png') no-repeat bottom right !important;
+  background-size: contain !important;
+  animation: bloom 8s ease-in-out infinite !important;
+  z-index: 9998 !important;
+  pointer-events: none !important;
+  opacity: 0.7 !important;
+  filter: drop-shadow(0 8px 20px rgba(147,51,234,0.6)) !important;
+}
+
+/* Decorative flowers using emojis */
+#footer::before,
+.footer::before {
+  content: '🌸' !important;
+  position: fixed !important;
+  bottom: 20px !important;
+  left: 30px !important;
+  font-size: 60px !important;
+  animation: sway 5s ease-in-out infinite, sparkle 3s ease-in-out infinite !important;
+  z-index: 9999 !important;
+  pointer-events: none !important;
+  filter: drop-shadow(0 4px 12px rgba(147,51,234,0.8)) !important;
+}
+
+/* ==========================================
+   MAIN CONTAINER - Cave Entrance
+   ========================================== */
+.container,
+body .container,
+div.container {
+  background: rgba(61,26,95,0.75) !important;
+  backdrop-filter: blur(15px) !important;
+  border-radius: 24px !important;
+  border: 3px solid rgba(192,132,252,0.4) !important;
+  box-shadow: 
+    0 10px 40px rgba(0,0,0,0.5),
+    inset 0 2px 4px rgba(255,255,255,0.08),
+    0 0 50px rgba(147,51,234,0.3) !important;
+  margin: 25px auto !important;
+  padding: 30px !important;
+  animation: gentleFadeIn 1.2s ease-out, softGlow 5s ease-in-out infinite !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.container.main,
+body .container.main,
+body div.container.main {
+  background: linear-gradient(135deg,
+    rgba(61,26,95,0.88) 0%,
+    rgba(91,42,143,0.82) 50%,
+    rgba(61,26,95,0.88) 100%) !important;
+  background-image: linear-gradient(135deg,
+    rgba(61,26,95,0.88) 0%,
+    rgba(91,42,143,0.82) 50%,
+    rgba(61,26,95,0.88) 100%) !important;
+    /* thin inner border kept as fallback */
+    border: 3px solid rgba(192,132,252,0.5) !important;
+  box-shadow: 
+    0 15px 60px rgba(0,0,0,0.6),
+    inset 0 3px 6px rgba(255,255,255,0.1),
+    0 0 70px rgba(147,51,234,0.4) !important;
+}
+
+/* ==========================================
+   TOPBAR - Purple Crown
+   ========================================== */
+.container.topbar,
+body .container.topbar,
+body div.container.topbar,
+div.container.topbar {
+  background: linear-gradient(135deg,
+    rgba(138,43,226,0.92) 0%,
+    rgba(147,51,234,0.88) 50%,
+    rgba(168,85,247,0.92) 100%) !important;
+  background-image: linear-gradient(135deg,
+    rgba(138,43,226,0.92) 0%,
+    rgba(147,51,234,0.88) 50%,
+    rgba(168,85,247,0.92) 100%) !important;
+  border: none !important;
+  border-bottom: 4px solid rgba(192,132,252,0.7) !important;
+  box-shadow: 
+    0 8px 30px rgba(0,0,0,0.5),
+    0 0 50px rgba(147,51,234,0.5),
+    inset 0 2px 4px rgba(255,255,255,0.15) !important;
+  backdrop-filter: blur(18px) !important;
+  padding: 14px 22px !important;
+  border-radius: 0 0 20px 20px !important;
+}
+
+/* Topbar welcome text */
+.topbar .welcomeback,
+body .topbar .welcomeback,
+.container.topbar .welcomeback {
+  color: #ffffff !important;
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 700 !important;
+  text-shadow: 
+    0 3px 10px rgba(192,132,252,0.9),
+    0 0 25px rgba(147,51,234,0.7) !important;
+  letter-spacing: 1.5px !important;
+}
+
+.topbar .welcomeback a,
+body .topbar .welcomeback a {
+  color: #e9d5ff !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.topbar .welcomeback a:hover {
+  color: #fde68a !important;
+  text-shadow: 
+    0 3px 15px rgba(253,224,71,0.9),
+    0 0 35px rgba(192,132,252,0.8) !important;
+  transform: scale(1.08) !important;
+}
+
+/* Topbar links */
+.topbar .toplinks,
+body .topbar .toplinks,
+.container.topbar ul.toplinks {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  background: transparent !important;
+}
+
+.topbar .toplinks li,
+body .topbar .toplinks li,
+.container.topbar ul.toplinks li {
+  display: inline-block !important;
+  margin: 0 8px !important;
+  background: rgba(255,255,255,0.18) !important;
+  background-image: none !important;
+  border-radius: 12px !important;
+  padding: 8px 16px !important;
+  transition: all 0.3s ease !important;
+  border: 2px solid rgba(192,132,252,0.4) !important;
+}
+
+.topbar .toplinks li:hover,
+body .topbar .toplinks li:hover {
+  background: rgba(192,132,252,0.35) !important;
+  border-color: rgba(253,224,71,0.6) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 20px rgba(147,51,234,0.5) !important;
+}
+
+.topbar .toplinks li a,
+body .topbar .toplinks li a,
+.container.topbar ul.toplinks li a {
+  color: #f3e5ff !important;
+  font-weight: 700 !important;
+  font-family: 'Quicksand', sans-serif !important;
+  text-decoration: none !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6) !important;
+  transition: all 0.3s ease !important;
+}
+
+.topbar .toplinks li a:hover {
+  color: #fde68a !important;
+  text-shadow: 0 3px 12px rgba(253,224,71,0.9) !important;
+}
+
+/* Beetle counts */
+#silverBeetlesAmt,
+#goldBeetlesAmt,
+body #silverBeetlesAmt,
+body #goldBeetlesAmt {
+  color: #fde68a !important;
+  font-weight: 800 !important;
+  text-shadow: 0 2px 8px rgba(253,224,71,0.9) !important;
+}
+
+/* ==========================================
+   NAVBAR - Flower Navigation
+   ========================================== */
+.navbar,
+.navbar-default,
+nav.navbar.navbar-default,
+body nav.navbar.navbar-default {
+  background: linear-gradient(135deg,
+    rgba(91,42,143,0.88) 0%,
+    rgba(124,58,170,0.85) 50%,
+    rgba(91,42,143,0.88) 100%) !important;
+  background-image: linear-gradient(135deg,
+    rgba(91,42,143,0.88) 0%,
+    rgba(124,58,170,0.85) 50%,
+    rgba(91,42,143,0.88) 100%) !important;
+  border: 3px solid rgba(192,132,252,0.5) !important;
+  border-radius: 18px !important;
+  box-shadow: 
+    0 10px 30px rgba(0,0,0,0.5),
+    inset 0 2px 4px rgba(255,255,255,0.12),
+    0 0 40px rgba(147,51,234,0.35) !important;
+  margin-bottom: 25px !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+.navbar-nav > li > a,
+.navbar-default .navbar-nav > li > a,
+body .navbar-nav > li > a {
+  color: #f3e5ff !important;
+  font-family: 'Quicksand', sans-serif !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;
+  transition: all 0.3s ease !important;
+  padding: 14px 20px !important;
+}
+
+.navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:hover {
+  background: rgba(192,132,252,0.35) !important;
+  color: #fde68a !important;
+  text-shadow: 0 3px 12px rgba(253,224,71,0.9) !important;
+  border-radius: 10px !important;
+  transform: scale(1.08) !important;
+}
+
+.navbar-nav > li.active > a,
+.navbar-default .navbar-nav > li.active > a {
+  background: rgba(192,132,252,0.45) !important;
+  color: #fde68a !important;
+  border-radius: 10px !important;
+  box-shadow: inset 0 3px 10px rgba(0,0,0,0.4) !important;
+}
+
+/* ==========================================
+   BREADCRUMB - Petal Path
+   ========================================== */
+.breadcrumb,
+ol.breadcrumb,
+body ol.breadcrumb,
+body div#pageContainer ol.breadcrumb {
+  background: linear-gradient(135deg,
+    rgba(91,42,143,0.75) 0%,
+    rgba(124,58,170,0.7) 100%) !important;
+  background-image: linear-gradient(135deg,
+    rgba(91,42,143,0.75) 0%,
+    rgba(124,58,170,0.7) 100%) !important;
+  border: 2px solid rgba(192,132,252,0.5) !important;
+  border-radius: 14px !important;
+  padding: 14px 22px !important;
+  margin-bottom: 22px !important;
+  box-shadow: 
+    0 6px 20px rgba(0,0,0,0.4),
+    inset 0 1px 3px rgba(255,255,255,0.1) !important;
+}
+
+.breadcrumb > li,
+body .breadcrumb > li {
+  color: #f3e5ff !important;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5) !important;
+}
+
+.breadcrumb > li > a,
+body .breadcrumb > li > a {
+  color: #e9d5ff !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+  font-weight: 700 !important;
+}
+
+.breadcrumb > li > a:hover {
+  color: #fde68a !important;
+  text-shadow: 0 3px 10px rgba(253,224,71,0.9) !important;
+}
+
+.breadcrumb > .active,
+body .breadcrumb > .active {
+  color: #c084fc !important;
+  font-weight: 800 !important;
+  text-shadow: 0 2px 8px rgba(192,132,252,0.8) !important;
+}
+
+/* ==========================================
+   SIDEBAR - Secret Garden
+   ========================================== */
+#pageSidebar,
+.sidebar,
+div#pageSidebar,
+body div#pageSidebar,
+body div.sidebar.col-md-3 {
+  background: linear-gradient(180deg,
+    rgba(61,26,95,0.88) 0%,
+    rgba(91,42,143,0.82) 100%) !important;
+  background-image: linear-gradient(180deg,
+    rgba(61,26,95,0.88) 0%,
+    rgba(91,42,143,0.82) 100%) !important;
+  border-radius: 20px !important;
+  padding: 18px !important;
+  border: 3px solid rgba(192,132,252,0.4) !important;
+  box-shadow: 
+    0 10px 40px rgba(0,0,0,0.5),
+    inset 0 2px 4px rgba(255,255,255,0.08),
+    0 0 50px rgba(147,51,234,0.3) !important;
+}
+
+/* ==========================================
+   PANELS - Petal Windows
+   ========================================== */
+.panel,
+.panel-default,
+div.panel.panel-default,
+body .panel.panel-default,
+body div.panel.panel-default {
+  background: linear-gradient(135deg,
+    rgba(61,26,95,0.85) 0%,
+    rgba(91,42,143,0.78) 100%) !important;
+  background-image: linear-gradient(135deg,
+    rgba(61,26,95,0.85) 0%,
+    rgba(91,42,143,0.78) 100%) !important;
+  border: 3px solid rgba(192,132,252,0.5) !important;
+  border-radius: 16px !important;
+  box-shadow: 
+    0 8px 25px rgba(0,0,0,0.5),
+    inset 0 2px 4px rgba(255,255,255,0.1),
+    0 0 35px rgba(147,51,234,0.3) !important;
+  margin-bottom: 22px !important;
+  overflow: hidden !important;
+  transition: all 0.3s ease !important;
+}
+
+.panel:hover,
+.panel-default:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 
+    0 15px 40px rgba(0,0,0,0.6),
+    0 0 50px rgba(192,132,252,0.5) !important;
+}
+
+.panel-heading,
+.panel-default > .panel-heading,
+body .panel-heading {
+  background: linear-gradient(135deg,
+    rgba(138,43,226,0.7) 0%,
+    rgba(168,85,247,0.65) 100%) !important;
+  background-image: linear-gradient(135deg,
+    rgba(138,43,226,0.7) 0%,
+    rgba(168,85,247,0.65) 100%) !important;
+  border: none !important;
+  border-bottom: 3px solid rgba(192,132,252,0.5) !important;
+  color: #ffffff !important;
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 800 !important;
+  font-size: 18px !important;
+  padding: 16px 20px !important;
+  text-shadow: 
+    0 3px 10px rgba(0,0,0,0.6),
+    0 0 20px rgba(192,132,252,0.7) !important;
+  letter-spacing: 1px !important;
+}
+
+.panel-body,
+body .panel-body {
+  background: transparent !important;
+  color: #f3e5ff !important;
+  padding: 20px !important;
+  font-size: 16px !important;
+  line-height: 1.8 !important;
+}
+
+.panel-footer,
+body .panel-footer {
+  background: rgba(91,42,143,0.6) !important;
+  border-top: 2px solid rgba(192,132,252,0.4) !important;
+  color: #e9d5ff !important;
+  padding: 14px 20px !important;
+}
+
+/* ==========================================
+   TABLES - Hyacinth Grid
+   ========================================== */
+.table,
+table.table,
+body table.table,
+body div#pageContainer table.table {
+  background: linear-gradient(135deg,
+    rgba(61,26,95,0.75) 0%,
+    rgba(91,42,143,0.7) 100%) !important;
+  background-image: linear-gradient(135deg,
+    rgba(61,26,95,0.75) 0%,
+    rgba(91,42,143,0.7) 100%) !important;
+  border: 3px solid rgba(192,132,252,0.4) !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5) !important;
+}
+
+/* Table headers */
+.table th,
+table.table th,
+body .table th,
+body table.table th {
+  background: linear-gradient(135deg,
+    rgba(138,43,226,0.75) 0%,
+    rgba(168,85,247,0.7) 100%) !important;
+  color: #fde68a !important;
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 800 !important;
+  font-size: 18px !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6) !important;
+  padding: 16px !important;
+  border-bottom: 3px solid rgba(192,132,252,0.5) !important;
+  text-align: center !important;
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+body .table > thead > tr > th,
+body .table > tbody > tr > th {
+  background: linear-gradient(135deg,
+    rgba(138,43,226,0.6) 0%,
+    rgba(168,85,247,0.55) 100%) !important;
+  color: #ffffff !important;
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 800 !important;
+  border-bottom: 3px solid rgba(192,132,252,0.5) !important;
+  padding: 16px !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6) !important;
+  letter-spacing: 1px !important;
+}
+
+.table > tbody > tr > td,
+.table > tfoot > tr > td,
+body .table > tbody > tr > td {
+  background: rgba(61,26,95,0.6) !important;
+  color: #f3e5ff !important;
+  border-top: 2px solid rgba(192,132,252,0.25) !important;
+  padding: 14px !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Additional table cell overrides for grey areas */
+td,
+td.right,
+td.left,
+td.center,
+td.top,
+td.bottom,
+td.right_odd,
+body td,
+body td.right,
+body td.left,
+body td.center,
+.table td,
+table.table td {
+  background: rgba(61,26,95,0.7) !important;
+  background-color: rgba(61,26,95,0.7) !important;
+  color: #f3e5ff !important;
+  border-color: rgba(192,132,252,0.3) !important;
+}
+
+.table > tbody > tr:hover > td,
+body .table > tbody > tr:hover > td {
+  background: rgba(124,58,170,0.4) !important;
+  color: #ffffff !important;
+  transform: scale(1.02) !important;
+}
+
+/* Inner table styling */
+.inner-table,
+table.inner-table,
+body .inner-table,
+body table.inner-table {
+  background: transparent !important;
+  border: none !important;
+}
+
+.inner-table td,
+table.inner-table td,
+body .inner-table td {
+  background: transparent !important;
+  color: #f3e5ff !important;
+  border-color: rgba(192,132,252,0.2) !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd),
+body .table-striped > tbody > tr:nth-of-type(odd) {
+  background: rgba(91,42,143,0.4) !important;
+}
+
+/* ==========================================
+   BUTTONS - Bloom Triggers
+   ========================================== */
+.btn,
+button,
+.button,
+input[type="submit"],
+input[type="button"],
+body .btn,
+body button {
+  background: linear-gradient(135deg,
+    rgba(138,43,226,0.85) 0%,
+    rgba(168,85,247,0.8) 100%) !important;
+  border: 3px solid rgba(192,132,252,0.6) !important;
+  border-radius: 14px !important;
+  color: #ffffff !important;
+  font-family: 'Quicksand', sans-serif !important;
+  font-weight: 800 !important;
+  padding: 12px 28px !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6) !important;
+  box-shadow: 
+    0 6px 20px rgba(0,0,0,0.4),
+    inset 0 2px 4px rgba(255,255,255,0.2),
+    0 0 25px rgba(147,51,234,0.4) !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+}
+
+.btn:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+body .btn:hover {
+  background: linear-gradient(135deg,
+    rgba(168,85,247,0.95) 0%,
+    rgba(192,132,252,0.9) 100%) !important;
+  border-color: rgba(253,224,71,0.8) !important;
+  color: #fde68a !important;
+  transform: translateY(-4px) scale(1.08) !important;
+  box-shadow: 
+    0 10px 30px rgba(147,51,234,0.6),
+    0 0 40px rgba(192,132,252,0.7) !important;
+  text-shadow: 0 3px 12px rgba(253,224,71,0.9) !important;
+}
+
+.btn:active,
+button:active,
+body .btn:active {
+  transform: translateY(-2px) scale(1.04) !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5) !important;
+}
+
+.btn-primary,
+body .btn-primary {
+  background: linear-gradient(135deg,
+    rgba(168,85,247,0.9) 0%,
+    rgba(138,43,226,0.85) 100%) !important;
+  border-color: rgba(192,132,252,0.7) !important;
+}
+
+.btn-success,
+body .btn-success {
+  background: linear-gradient(135deg,
+    rgba(138,43,226,0.9) 0%,
+    rgba(34,197,94,0.8) 100%) !important;
+  border-color: rgba(192,132,252,0.6) !important;
+}
+
+.btn-danger,
+body .btn-danger {
+  background: linear-gradient(135deg,
+    rgba(168,85,247,0.9) 0%,
+    rgba(239,68,68,0.85) 100%) !important;
+  border-color: rgba(192,132,252,0.6) !important;
+}
+
+/* ==========================================
+   FORMS & INPUTS - Magical Input
+   ========================================== */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+textarea,
+select,
+.form-control,
+body input[type="text"],
+body input[type="password"],
+body textarea,
+body select,
+body .form-control {
+  background: rgba(61,26,95,0.85) !important;
+  border: 3px solid rgba(192,132,252,0.5) !important;
+  border-radius: 12px !important;
+  color: #f3e5ff !important;
+  padding: 12px 18px !important;
+  font-family: 'Lora', serif !important;
+  font-size: 16px !important;
+  box-shadow: 
+    inset 0 3px 10px rgba(0,0,0,0.5),
+    0 0 20px rgba(147,51,234,0.25) !important;
+  transition: all 0.3s ease !important;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+textarea:focus,
+select:focus,
+.form-control:focus,
+body input:focus,
+body textarea:focus,
+body select:focus {
+  background: rgba(91,42,143,0.85) !important;
+  border-color: rgba(253,224,71,0.8) !important;
+  color: #ffffff !important;
+  box-shadow: 
+    inset 0 3px 10px rgba(0,0,0,0.5),
+    0 0 35px rgba(192,132,252,0.6),
+    0 0 20px rgba(253,224,71,0.5) !important;
+  outline: none !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(243,229,255,0.5) !important;
+}
+
+/* ==========================================
+   LINKS - Flower Paths
+   ========================================== */
+a,
+body a {
+  color: #e9d5ff !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+  font-weight: 700 !important;
+}
+
+a:hover,
+body a:hover {
+  color: #fde68a !important;
+  text-shadow: 0 2px 10px rgba(253,224,71,0.9) !important;
+  text-decoration: none !important;
+}
+
+a:active,
+body a:active {
+  color: #c084fc !important;
+}
+
+/* ==========================================
+   HEADINGS - Hyacinth Titles
+   ========================================== */
+h1, h2, h3, h4, h5, h6,
+body h1, body h2, body h3, body h4, body h5, body h6 {
+  font-family: 'Playfair Display', serif !important;
+  color: #c084fc !important;
+  text-shadow: 
+    0 3px 10px rgba(0,0,0,0.7),
+    0 0 25px rgba(192,132,252,0.6),
+    0 0 40px rgba(147,51,234,0.4) !important;
+  letter-spacing: 1.5px !important;
+  margin-bottom: 18px !important;
+  padding-bottom: 10px !important;
+  border-bottom: 3px solid rgba(192,132,252,0.4) !important;
+  font-weight: 800 !important;
+}
+
+h1, body h1 {
+  font-size: 38px !important;
+  color: #e9d5ff !important;
+}
+
+h2, body h2 {
+  font-size: 32px !important;
+}
+
+h3, body h3 {
+  font-size: 26px !important;
+}
+
+h4, body h4 {
+  font-size: 22px !important;
+  color: #e9d5ff !important;
+}
+
+h5, body h5 {
+  font-size: 19px !important;
+  color: #d8b4fe !important;
+}
+
+h6, body h6 {
+  font-size: 17px !important;
+  color: #c084fc !important;
+}
+
+/* ==========================================
+   ALERTS - Petal Messages
+   ========================================== */
+.alert,
+body .alert {
+  background: rgba(91,42,143,0.85) !important;
+  border: 3px solid rgba(192,132,252,0.6) !important;
+  border-radius: 14px !important;
+  color: #f3e5ff !important;
+  padding: 18px 22px !important;
+  margin-bottom: 22px !important;
+  box-shadow: 
+    0 8px 25px rgba(0,0,0,0.5),
+    0 0 35px rgba(147,51,234,0.4) !important;
+  font-family: 'Lora', serif !important;
+}
+
+.alert-success,
+body .alert-success {
+  background: rgba(34,197,94,0.35) !important;
+  border-color: rgba(192,132,252,0.7) !important;
+  color: #86efac !important;
+}
+
+.alert-warning,
+body .alert-warning {
+  background: rgba(251,191,36,0.35) !important;
+  border-color: rgba(253,224,71,0.8) !important;
+  color: #fde68a !important;
+}
+
+.alert-danger,
+body .alert-danger {
+  background: rgba(239,68,68,0.35) !important;
+  border-color: rgba(192,132,252,0.7) !important;
+  color: #fca5a5 !important;
+}
+
+.alert-info,
+body .alert-info {
+  background: rgba(124,58,170,0.4) !important;
+  border-color: rgba(192,132,252,0.6) !important;
+  color: #e9d5ff !important;
+}
+
+/* ==========================================
+   FEATURED LION - Royal Display
+   ========================================== */
+.lionImage,
+.featured-lion,
+div.lionImage,
+body .lionImage {
+  background: linear-gradient(135deg,
+    rgba(61,26,95,0.92) 0%,
+    rgba(91,42,143,0.88) 100%) !important;
+  border: 4px solid rgba(192,132,252,0.7) !important;
+  border-radius: 24px !important;
+  padding: 25px !important;
+  box-shadow: 
+    0 15px 50px rgba(0,0,0,0.6),
+    inset 0 3px 6px rgba(255,255,255,0.12),
+    0 0 60px rgba(147,51,234,0.5),
+    0 0 100px rgba(192,132,252,0.4) !important;
+  animation: softGlow 7s ease-in-out infinite !important;
+  margin: 25px auto !important;
+  text-align: center !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.lionImage::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -50% !important;
+  left: -50% !important;
+  width: 200% !important;
+  height: 200% !important;
+  background: linear-gradient(
+    60deg,
+    transparent,
+    rgba(192,132,252,0.15),
+    transparent
+  ) !important;
+  animation: sway 4s infinite !important;
+  pointer-events: none !important;
+}
+
+.lionImage img,
+.featured-lion img,
+body .lionImage img {
+  border-radius: 14px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+  transition: all 0.4s ease !important;
+}
+
+.lionImage:hover img,
+.featured-lion:hover img {
+  transform: scale(1.08) !important;
+  box-shadow: 0 15px 40px rgba(192,132,252,0.7) !important;
+}
+
+.lionImage.featured-lion .lion-image-block {
+  position: relative !important;
+  display: inline-block !important;
+  animation: bloom 10s ease-in-out infinite !important;
+  width: 566.67px !important;
+  height: 459.88px !important;
+  max-width: 100% !important;
+}
+
+.lionImage.featured-lion .lion-image-block img {
+  max-width: 566.67px !important;
+  max-height: 459.88px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+/* ==========================================
+   FOOTER - Garden's End
+   ========================================== */
+.footer,
+#footer,
+body .footer,
+body #footer {
+  background: linear-gradient(180deg,
+    rgba(61,26,95,0.96) 0%,
+    rgba(38,16,59,0.98) 100%) !important;
+  border-top: 4px solid rgba(192,132,252,0.6) !important;
+  border-radius: 20px 20px 0 0 !important;
+  padding: 28px !important;
+  margin-top: 45px !important;
+  color: #e9d5ff !important;
+  text-align: center !important;
+  box-shadow: 
+    0 -10px 40px rgba(0,0,0,0.6),
+    inset 0 2px 4px rgba(255,255,255,0.1),
+    0 0 50px rgba(147,51,234,0.4) !important;
+  font-family: 'Quicksand', sans-serif !important;
+  position: relative !important;
+}
+
+.footer a,
+#footer a,
+body .footer a {
+  color: #c084fc !important;
+  font-weight: 700 !important;
+}
+
+.footer a:hover,
+#footer a:hover {
+  color: #fde68a !important;
+  text-shadow: 0 3px 12px rgba(253,224,71,0.9) !important;
+}
+
+/* ==========================================
+   TOOLTIPS - Petal Whispers
+   ========================================== */
+.tooltip,
+body .tooltip {
+  font-family: 'Lora', serif !important;
+}
+
+.tooltip-inner,
+body .tooltip-inner {
+  background: rgba(91,42,143,0.96) !important;
+  color: #f3e5ff !important;
+  border: 3px solid rgba(192,132,252,0.6) !important;
+  border-radius: 12px !important;
+  padding: 12px 18px !important;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6) !important;
+  font-size: 15px !important;
+}
+
+/* ==========================================
+   MODALS - Bloom Windows
+   ========================================== */
+.modal-content,
+body .modal-content {
+  background: linear-gradient(135deg,
+    rgba(61,26,95,0.98) 0%,
+    rgba(91,42,143,0.96) 100%) !important;
+  border: 4px solid rgba(192,132,252,0.7) !important;
+  border-radius: 24px !important;
+  box-shadow: 
+    0 20px 80px rgba(0,0,0,0.8),
+    0 0 70px rgba(147,51,234,0.6) !important;
+  color: #f3e5ff !important;
+}
+
+.modal-header,
+body .modal-header {
+  background: linear-gradient(135deg,
+    rgba(138,43,226,0.8) 0%,
+    rgba(168,85,247,0.75) 100%) !important;
+  border-bottom: 3px solid rgba(192,132,252,0.6) !important;
+  border-radius: 20px 20px 0 0 !important;
+  padding: 22px !important;
+}
+
+.modal-title,
+body .modal-title {
+  color: #fde68a !important;
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 800 !important;
+  text-shadow: 0 3px 12px rgba(253,224,71,0.9) !important;
+}
+
+.modal-body,
+body .modal-body {
+  padding: 26px !important;
+  font-family: 'Lora', serif !important;
+}
+
+.modal-footer,
+body .modal-footer {
+  background: rgba(61,26,95,0.7) !important;
+  border-top: 3px solid rgba(192,132,252,0.5) !important;
+  border-radius: 0 0 20px 20px !important;
+  padding: 20px !important;
+}
+
+/* ==========================================
+   BADGES & LABELS - Petal Marks
+   ========================================== */
+.badge,
+.label,
+body .badge,
+body .label {
+  background: linear-gradient(135deg,
+    rgba(168,85,247,0.85) 0%,
+    rgba(138,43,226,0.8) 100%) !important;
+  color: #ffffff !important;
+  border-radius: 10px !important;
+  padding: 8px 14px !important;
+  font-family: 'Quicksand', sans-serif !important;
+  font-weight: 800 !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6) !important;
+  box-shadow: 0 6px 16px rgba(147,51,234,0.5) !important;
+}
+
+/* ==========================================
+   PROGRESS BARS - Bloom Growth
+   ========================================== */
+.progress,
+body .progress {
+  background: rgba(61,26,95,0.85) !important;
+  border: 3px solid rgba(192,132,252,0.5) !important;
+  border-radius: 14px !important;
+  height: 30px !important;
+  box-shadow: inset 0 3px 10px rgba(0,0,0,0.6) !important;
+  overflow: hidden !important;
+}
+
+.progress-bar,
+body .progress-bar {
+  background: linear-gradient(135deg,
+    rgba(138,43,226,0.9) 0%,
+    rgba(168,85,247,0.85) 50%,
+    rgba(192,132,252,0.9) 100%) !important;
+  box-shadow: 
+    0 0 25px rgba(192,132,252,0.7),
+    inset 0 2px 4px rgba(255,255,255,0.3) !important;
+  transition: all 0.4s ease !important;
+  font-family: 'Quicksand', sans-serif !important;
+  font-weight: 800 !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8) !important;
+  line-height: 30px !important;
+}
+
+/* ==========================================
+   PAGINATION - Petal Steps
+   ========================================== */
+.pagination,
+body .pagination {
+  margin: 22px 0 !important;
+}
+
+.pagination > li > a,
+.pagination > li > span,
+body .pagination > li > a {
+  background: rgba(91,42,143,0.85) !important;
+  border: 3px solid rgba(192,132,252,0.5) !important;
+  color: #f3e5ff !important;
+  padding: 12px 18px !important;
+  margin: 0 5px !important;
+  border-radius: 12px !important;
+  font-family: 'Quicksand', sans-serif !important;
+  font-weight: 700 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4) !important;
+}
+
+.pagination > li > a:hover,
+body .pagination > li > a:hover {
+  background: rgba(168,85,247,0.7) !important;
+  border-color: rgba(253,224,71,0.8) !important;
+  color: #fde68a !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 25px rgba(192,132,252,0.6) !important;
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+body .pagination > .active > a {
+  background: linear-gradient(135deg,
+    rgba(168,85,247,0.85) 0%,
+    rgba(138,43,226,0.8) 100%) !important;
+  border-color: rgba(253,224,71,0.8) !important;
+  color: #fde68a !important;
+  box-shadow: 
+    0 8px 25px rgba(192,132,252,0.7),
+    inset 0 3px 6px rgba(0,0,0,0.4) !important;
+}
+
+/* ==========================================
+   SCROLLBAR - Vine Scroll
+   ========================================== */
+::-webkit-scrollbar {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(38,16,59,0.85) !important;
+  border-radius: 12px !important;
+  border: 3px solid rgba(192,132,252,0.4) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,
+    rgba(168,85,247,0.85) 0%,
+    rgba(138,43,226,0.85) 100%) !important;
+  border-radius: 12px !important;
+  border: 3px solid rgba(253,224,71,0.5) !important;
+  box-shadow: 
+    0 0 20px rgba(192,132,252,0.7),
+    inset 0 2px 4px rgba(255,255,255,0.2) !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg,
+    rgba(192,132,252,0.95) 0%,
+    rgba(168,85,247,0.95) 100%) !important;
+  box-shadow: 0 0 30px rgba(253,224,71,0.9) !important;
+}
+
+/* ==========================================
+   LIODEN SPECIFIC - Game Elements
+   ========================================== */
+
+/* Beetle icons with purple glow */
+img[src*="icon-beetle-silver"],
+img[src*="icon-beetle-gold"] {
+  filter: drop-shadow(0 3px 10px rgba(192,132,252,0.9)) !important;
+  transition: all 0.3s ease !important;
+}
+
+img[src*="icon-beetle-silver"]:hover,
+img[src*="icon-beetle-gold"]:hover {
+  filter: drop-shadow(0 5px 20px rgba(253,224,71,1)) brightness(1.3) !important;
+  transform: scale(1.2) rotate(-5deg) !important;
+}
+
+/* Energy bars */
+.energy-bar,
+body .energy-bar {
+  background: rgba(61,26,95,0.85) !important;
+  border: 3px solid rgba(192,132,252,0.5) !important;
+  border-radius: 14px !important;
+  box-shadow: inset 0 3px 10px rgba(0,0,0,0.6) !important;
+}
+
+.energy-bar-fill,
+body .energy-bar-fill {
+  background: linear-gradient(90deg,
+    rgba(168,85,247,0.9) 0%,
+    rgba(192,132,252,0.9) 100%) !important;
+  box-shadow: 0 0 20px rgba(192,132,252,0.9) !important;
+}
+
+/* Chat messages */
+.chat-message,
+body .chat-message {
+  background: rgba(91,42,143,0.7) !important;
+  border-left: 5px solid rgba(192,132,252,0.7) !important;
+  border-radius: 0 14px 14px 0 !important;
+  padding: 14px 18px !important;
+  margin-bottom: 12px !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4) !important;
+}
+
+/* ==========================================
+   CRITICAL OVERRIDES - Maximum Power
+   ========================================== */
+
+/* Force topbar */
+body div.container.topbar,
+html body div.container.topbar {
+  background: linear-gradient(135deg,
+    rgba(138,43,226,0.92) 0%,
+    rgba(147,51,234,0.88) 50%,
+    rgba(168,85,247,0.92) 100%) !important;
+  background-image: linear-gradient(135deg,
+    rgba(138,43,226,0.92) 0%,
+    rgba(147,51,234,0.88) 50%,
+    rgba(168,85,247,0.92) 100%) !important;
+}
+
+body div.container.topbar *,
+.container.topbar * {
+  background-image: none !important;
+}
+
+/* Force main */
+body div.container.main,
+html body div.container.main {
+  background: linear-gradient(135deg,
+    rgba(61,26,95,0.88) 0%,
+    rgba(91,42,143,0.82) 50%,
+    rgba(61,26,95,0.88) 100%) !important;
+  background-image: linear-gradient(135deg,
+    rgba(61,26,95,0.88) 0%,
+    rgba(91,42,143,0.82) 50%,
+    rgba(61,26,95,0.88) 100%) !important;
+}
+
+/* Force navbar */
+body div.container.main div.row nav.navbar.navbar-default {
+  background: linear-gradient(135deg,
+    rgba(91,42,143,0.88) 0%,
+    rgba(124,58,170,0.85) 50%,
+    rgba(91,42,143,0.88) 100%) !important;
+  background-image: linear-gradient(135deg,
+    rgba(91,42,143,0.88) 0%,
+    rgba(124,58,170,0.85) 50%,
+    rgba(91,42,143,0.88) 100%) !important;
+}
+
+/* Force breadcrumb */
+body div#pageContainer ol.breadcrumb {
+  background: linear-gradient(135deg,
+    rgba(91,42,143,0.75) 0%,
+    rgba(124,58,170,0.7) 100%) !important;
+  background-image: linear-gradient(135deg,
+    rgba(91,42,143,0.75) 0%,
+    rgba(124,58,170,0.7) 100%) !important;
+}
+
+/* Force sidebar */
+body div#pageSidebar,
+body div.sidebar.col-md-3 {
+  background: linear-gradient(180deg,
+    rgba(61,26,95,0.88) 0%,
+    rgba(91,42,143,0.82) 100%) !important;
+  background-image: linear-gradient(180deg,
+    rgba(61,26,95,0.88) 0%,
+    rgba(91,42,143,0.82) 100%) !important;
+}
+
+/* Force panels */
+body div#pageSidebar div.panel.panel-default,
+body div.sidebar div.panel.panel-default {
+  background: linear-gradient(135deg,
+    rgba(61,26,95,0.85) 0%,
+    rgba(91,42,143,0.78) 100%) !important;
+  background-image: linear-gradient(135deg,
+    rgba(61,26,95,0.85) 0%,
+    rgba(91,42,143,0.78) 100%) !important;
+}
+
+/* Force tables */
+body div#pageContainer table.table {
+  background: linear-gradient(135deg,
+    rgba(61,26,95,0.75) 0%,
+    rgba(91,42,143,0.7) 100%) !important;
+  background-image: linear-gradient(135deg,
+    rgba(61,26,95,0.75) 0%,
+    rgba(91,42,143,0.7) 100%) !important;
+}
+
+/* ==========================================
+   SELECTION & FINISHING
+   ========================================== */
+
+::selection {
+  background: rgba(192,132,252,0.6) !important;
+  color: #fde68a !important;
+  text-shadow: 0 2px 10px rgba(253,224,71,0.9) !important;
+}
+
+::-moz-selection {
+  background: rgba(192,132,252,0.6) !important;
+  color: #fde68a !important;
+  text-shadow: 0 2px 10px rgba(253,224,71,0.9) !important;
+}
+
+html {
+  scroll-behavior: smooth !important;
+}
+
+p, span, div {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4) !important;
+}
+
+/* ==========================================
+   ADDITIONAL DEN PAGE ELEMENTS
+   Dynasty, Giving, Reclaim, Allies, Clans
+   ========================================== */
+
+/* Feature messages (Snuh messages, etc.) */
+.feature,
+div.feature,
+body .feature,
+.feature.auto.center {
+  background: linear-gradient(135deg,
+    rgba(138,43,226,0.85) 0%,
+    rgba(168,85,247,0.8) 100%) !important;
+  border: 3px solid rgba(192,132,252,0.6) !important;
+  border-radius: 14px !important;
+  padding: 16px 24px !important;
+  color: #fde68a !important;
+  font-family: 'Quicksand', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6) !important;
+  box-shadow: 
+    0 8px 25px rgba(0,0,0,0.5),
+    0 0 35px rgba(147,51,234,0.4) !important;
+  margin: 15px auto !important;
+  text-align: center !important;
+}
+
+/* Giving table - special holiday table */
+table#giving,
+body table#giving {
+  margin: 20px auto !important;
+}
+
+table.table tr td.top,
+body table.table tr td.top {
+  background: linear-gradient(135deg,
+    rgba(138,43,226,0.75) 0%,
+    rgba(168,85,247,0.7) 100%) !important;
+  color: #fde68a !important;
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 800 !important;
+  font-size: 18px !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6) !important;
+  padding: 16px !important;
+  border-bottom: 3px solid rgba(192,132,252,0.5) !important;
+}
+
+table.table tr td.bottom,
+body table.table tr td.bottom {
+  background: rgba(91,42,143,0.6) !important;
+  color: #e9d5ff !important;
+  padding: 12px !important;
+  border-top: 2px solid rgba(192,132,252,0.4) !important;
+}
+
+/* Dynasty/Dynasty links styling */
+.dynastycollection,
+.row.dynastycollection,
+body .dynastycollection {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 15px !important;
+  margin-bottom: 20px !important;
+}
+
+.dynastycollection .dynastylist,
+.dynastylist,
+body .dynastycollection .dynastylist {
+  margin-bottom: 15px !important;
+  flex: 1 1 calc(33.333% - 15px) !important;
+  min-width: 250px !important;
+}
+
+.dynastylist a,
+body .dynastylist a {
+  text-decoration: none !important;
+  display: block !important;
+  height: 100% !important;
+}
+
+.dynastylist a div.left,
+body .dynastylist a div.left {
+  background: linear-gradient(135deg,
+    rgba(91,42,143,0.92) 0%,
+    rgba(124,58,170,0.88) 100%) !important;
+  border: 3px solid rgba(192,132,252,0.5) !important;
+  border-radius: 14px !important;
+  padding: 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  text-align: center !important;
+  min-height: 180px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 
+    0 6px 20px rgba(0,0,0,0.4),
+    0 0 25px rgba(147,51,234,0.3) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.dynastylist a:hover div.left,
+body .dynastylist a:hover div.left {
+  background: linear-gradient(135deg,
+    rgba(138,43,226,0.95) 0%,
+    rgba(168,85,247,0.92) 100%) !important;
+  transform: translateY(-5px) scale(1.02) !important;
+  border-color: rgba(253,224,71,0.7) !important;
+  box-shadow: 
+    0 12px 35px rgba(147,51,234,0.6),
+    0 0 45px rgba(192,132,252,0.7) !important;
+}
+
+.dynastylist h3,
+body .dynastylist h3,
+.dynastylist div.left h3 {
+  color: #fde68a !important;
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 800 !important;
+  font-size: 22px !important;
+  text-shadow: 
+    0 3px 10px rgba(0,0,0,0.7),
+    0 0 20px rgba(253,224,71,0.6) !important;
+  border-bottom: 3px solid rgba(192,132,252,0.5) !important;
+  padding-bottom: 10px !important;
+  margin: 0 0 15px 0 !important;
+  letter-spacing: 1px !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.dynastylist img,
+body .dynastylist img,
+.dynastylist div.left img {
+  border-radius: 12px !important;
+  border: 3px solid rgba(192,132,252,0.6) !important;
+  box-shadow: 
+    0 8px 20px rgba(0,0,0,0.5),
+    0 0 25px rgba(147,51,234,0.4) !important;
+  width: 100% !important;
+  max-width: 240px !important;
+  height: auto !important;
+  margin-top: auto !important;
+  transition: all 0.3s ease !important;
+}
+
+.dynastylist a:hover img,
+body .dynastylist a:hover img {
+  transform: scale(1.05) !important;
+  border-color: rgba(253,224,71,0.8) !important;
+  box-shadow: 
+    0 10px 25px rgba(0,0,0,0.6),
+    0 0 35px rgba(253,224,71,0.5) !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .dynastycollection .dynastylist,
+  body .dynastycollection .dynastylist {
+    flex: 1 1 calc(50% - 15px) !important;
+    min-width: 200px !important;
+  }
+  
+  .dynastylist a div.left,
+  body .dynastylist a div.left {
+    min-height: 160px !important;
+    padding: 16px !important;
+  }
+  
+  .dynastylist h3,
+  body .dynastylist h3 {
+    font-size: 18px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .dynastycollection .dynastylist,
+  body .dynastycollection .dynastylist {
+    flex: 1 1 100% !important;
+  }
+}
+
+/* Cave and Mound grids */
+.cave-grid,
+.mound-grid,
+body .cave-grid,
+body .mound-grid {
+  background: linear-gradient(135deg,
+    rgba(91,42,143,0.85) 0%,
+    rgba(124,58,170,0.8) 100%) !important;
+  border: 3px solid rgba(192,132,252,0.5) !important;
+  border-radius: 14px !important;
+  padding: 16px !important;
+  margin: 8px 0 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 
+    0 6px 20px rgba(0,0,0,0.4),
+    0 0 25px rgba(147,51,234,0.3) !important;
+  color: #f3e5ff !important;
+  font-weight: 700 !important;
+}
+
+.cave-grid:hover,
+.mound-grid:hover,
+body .cave-grid:hover,
+body .mound-grid:hover {
+  background: linear-gradient(135deg,
+    rgba(138,43,226,0.9) 0%,
+    rgba(168,85,247,0.85) 100%) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 
+    0 10px 30px rgba(147,51,234,0.6),
+    0 0 40px rgba(192,132,252,0.6) !important;
+  color: #fde68a !important;
+}
+
+.cave-grid img,
+.mound-grid img,
+body .cave-grid img,
+body .mound-grid img {
+  border-radius: 10px !important;
+  border: 2px solid rgba(192,132,252,0.4) !important;
+  margin-bottom: 8px !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4) !important;
+}
+
+/* Allies and Clans tables */
+#allies,
+#clans,
+body #allies,
+body #clans {
+  margin: 20px auto !important;
+}
+
+#allies td.right,
+#clans td.right,
+body #allies td.right,
+body #clans td.right {
+  background: linear-gradient(135deg,
+    rgba(61,26,95,0.85) 0%,
+    rgba(91,42,143,0.78) 100%) !important;
+  padding: 20px !important;
+  transition: all 0.3s ease !important;
+}
+
+#allies td.right:hover,
+#clans td.right:hover {
+  background: rgba(124,58,170,0.6) !important;
+  transform: scale(1.02) !important;
+}
+
+/* Sparring table */
+#sparring,
+table#sparring,
+body #sparring,
+body table#sparring {
+  margin: 20px auto !important;
+}
+
+#sparring th,
+table#sparring th,
+body #sparring th {
+  background: linear-gradient(135deg,
+    rgba(138,43,226,0.75) 0%,
+    rgba(168,85,247,0.7) 100%) !important;
+  color: #fde68a !important;
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 800 !important;
+  font-size: 18px !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6) !important;
+  padding: 16px !important;
+  border-bottom: 3px solid rgba(192,132,252,0.5) !important;
+}
+
+#sparring td,
+table#sparring td,
+body #sparring td {
+  background: rgba(61,26,95,0.75) !important;
+  color: #f3e5ff !important;
+  padding: 16px !important;
+}
+
+#sparring td.right_odd,
+table#sparring td.right_odd,
+body #sparring td.right_odd {
+  background: rgba(91,42,143,0.7) !important;
+  color: #f3e5ff !important;
+  padding: 16px !important;
+  text-align: center !important;
+}
+
+#sparring select,
+table#sparring select,
+body #sparring select {
+  background: rgba(61,26,95,0.85) !important;
+  border: 3px solid rgba(192,132,252,0.5) !important;
+  border-radius: 12px !important;
+  color: #f3e5ff !important;
+  padding: 10px 14px !important;
+  font-family: 'Lora', serif !important;
+}
+
+/* Reclaim table */
+#reclaim,
+body #reclaim {
+  margin: 20px auto !important;
+}
+
+#reclaim select,
+body #reclaim select {
+  background: rgba(61,26,95,0.85) !important;
+  border: 3px solid rgba(192,132,252,0.5) !important;
+  border-radius: 12px !important;
+  color: #f3e5ff !important;
+  padding: 10px 14px !important;
+  font-family: 'Lora', serif !important;
+  min-width: 250px !important;
+}
+
+/* About table (king info) */
+#about,
+body #about {
+  margin: 20px auto !important;
+}
+
+#about .inner-table,
+body #about .inner-table {
+  background: transparent !important;
+  border: none !important;
+}
+
+#about .inner-table td.left,
+body #about .inner-table td.left {
+  background: rgba(91,42,143,0.4) !important;
+  color: #e9d5ff !important;
+  padding: 8px 12px !important;
+}
+
+#about .inner-table td.right,
+body #about .inner-table td.right {
+  background: rgba(61,26,95,0.5) !important;
+  color: #f3e5ff !important;
+  padding: 8px 12px !important;
+}
+
+/* ==========================================
+   INNER TABLE - Stats Grid
+   Level, Branch, Stats, Territory, etc.
+   ========================================== */
+
+/* All inner-table instances */
+.inner-table,
+table.inner-table,
+body .inner-table,
+body table.inner-table {
+  background: linear-gradient(135deg,
+    rgba(61,26,95,0.88) 0%,
+    rgba(91,42,143,0.82) 100%) !important;
+  border: 3px solid rgba(192,132,252,0.5) !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  box-shadow: 
+    0 8px 25px rgba(0,0,0,0.5),
+    0 0 30px rgba(147,51,234,0.4) !important;
+  width: 100% !important;
+}
+
+/* Left cells (labels like "Level:", "Stats:", etc.) */
+.inner-table td.left,
+table.inner-table td.left,
+body .inner-table td.left,
+body table.inner-table td.left,
+.inner-table tbody tr td.left {
+  background: linear-gradient(135deg,
+    rgba(138,43,226,0.65) 0%,
+    rgba(124,58,170,0.6) 100%) !important;
+  color: #fde68a !important;
+  font-weight: 800 !important;
+  font-family: 'Playfair Display', serif !important;
+  padding: 12px 16px !important;
+  border-right: 2px solid rgba(192,132,252,0.4) !important;
+  border-bottom: 2px solid rgba(192,132,252,0.25) !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6) !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Right cells (values like "4", "416", etc.) */
+.inner-table td.right,
+table.inner-table td.right,
+body .inner-table td.right,
+body table.inner-table td.right,
+.inner-table tbody tr td.right {
+  background: rgba(61,26,95,0.75) !important;
+  color: #f3e5ff !important;
+  font-weight: 700 !important;
+  font-family: 'Quicksand', sans-serif !important;
+  padding: 12px 16px !important;
+  border-bottom: 2px solid rgba(192,132,252,0.25) !important;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Hover effect for table rows */
+.inner-table tbody tr:hover td.left,
+body .inner-table tbody tr:hover td.left {
+  background: linear-gradient(135deg,
+    rgba(168,85,247,0.75) 0%,
+    rgba(147,51,234,0.7) 100%) !important;
+  color: #ffffff !important;
+  text-shadow: 0 3px 10px rgba(253,224,71,0.9) !important;
+}
+
+.inner-table tbody tr:hover td.right,
+body .inner-table tbody tr:hover td.right {
+  background: rgba(91,42,143,0.85) !important;
+  color: #ffffff !important;
+  transform: scale(1.01) !important;
+}
+
+/* Small text in right cells */
+.inner-table td.right.small,
+body .inner-table td.right.small {
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+
+/* Links in inner-table */
+.inner-table td.right a,
+body .inner-table td.right a {
+  color: #c084fc !important;
+  font-weight: 800 !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.inner-table td.right a:hover,
+body .inner-table td.right a:hover {
+  color: #fde68a !important;
+  text-shadow: 0 3px 12px rgba(253,224,71,0.9) !important;
+}
+
+/* Spacer cells (width="3") */
+.inner-table td[width="3"],
+body .inner-table td[width="3"] {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  width: 3px !important;
+}
+
+/* Last row no bottom border */
+.inner-table tbody tr:last-child td,
+body .inner-table tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* Player info table */
+#player,
+body #player {
+  margin: 20px auto !important;
+}
+
+#player .member-online,
+body #player .member-online {
+  filter: drop-shadow(0 3px 10px rgba(192,132,252,0.9)) !important;
+}
+
+/* Comment box */
+#commentBox,
+body #commentBox {
+  background: rgba(61,26,95,0.85) !important;
+  border: 3px solid rgba(192,132,252,0.5) !important;
+  border-radius: 14px !important;
+  padding: 10px !important;
+  box-shadow: 
+    inset 0 3px 10px rgba(0,0,0,0.5),
+    0 0 25px rgba(147,51,234,0.3) !important;
+}
+
+.comment,
+body .comment {
+  background: rgba(91,42,143,0.3) !important;
+  border-radius: 8px !important;
+  padding: 8px !important;
+  margin: 4px 0 !important;
+}
+
+.comment:nth-child(even),
+body .comment:nth-child(even) {
+  background: rgba(124,58,170,0.4) !important;
+}
+
+.commentTag,
+body .commentTag {
+  border: 2px solid rgba(192,132,252,0.5) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
+}
+
+#makeComment input[type="text"],
+body #makeComment input[type="text"] {
+  background: rgba(61,26,95,0.85) !important;
+  border: 3px solid rgba(192,132,252,0.5) !important;
+  border-radius: 12px !important;
+  color: #f3e5ff !important;
+  padding: 10px 14px !important;
+}
+
+/* Edit details panel */
+#editdetailspanel,
+body #editdetailspanel {
+  animation: gentleFadeIn 0.5s ease-out !important;
+}
+
+#editdetailspanel textarea,
+body #editdetailspanel textarea {
+  background: rgba(61,26,95,0.85) !important;
+  border: 3px solid rgba(192,132,252,0.5) !important;
+  border-radius: 12px !important;
+  color: #f3e5ff !important;
+  padding: 12px !important;
+  font-family: 'Lora', serif !important;
+}
+
+/* Lion image display */
+#lion_image,
+.lion-image-block,
+body #lion_image,
+body .lion-image-block {
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+  border: 3px solid rgba(192,132,252,0.5) !important;
+}
+
+/* Toggle visibility links */
+a[onclick*="toggle_visibility"],
+body a[onclick*="toggle_visibility"] {
+  color: #fde68a !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+}
+
+a[onclick*="toggle_visibility"]:hover {
+  color: #c084fc !important;
+  text-shadow: 0 3px 12px rgba(192,132,252,0.9) !important;
+}
+
+/* Account Settings and bottom links */
+.left,
+div.left:not(.dynastylist div.left):not(.row a div.left),
+body div.left:not(.dynastylist div.left):not(.row a div.left) {
+  background: linear-gradient(135deg,
+    rgba(91,42,143,0.88) 0%,
+    rgba(124,58,170,0.85) 100%) !important;
+  border: 3px solid rgba(192,132,252,0.5) !important;
+  border-radius: 14px !important;
+  padding: 16px 20px !important;
+  margin: 10px 0 !important;
+  text-align: center !important;
+  box-shadow: 
+    0 6px 20px rgba(0,0,0,0.4),
+    0 0 25px rgba(147,51,234,0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.left a,
+div.left a,
+body div.left a {
+  color: #f3e5ff !important;
+  font-family: 'Quicksand', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  text-decoration: none !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6) !important;
+  display: block !important;
+  transition: all 0.3s ease !important;
+}
+
+.left:hover,
+div.left:hover {
+  background: linear-gradient(135deg,
+    rgba(138,43,226,0.92) 0%,
+    rgba(168,85,247,0.88) 100%) !important;
+  border-color: rgba(253,224,71,0.7) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 
+    0 10px 30px rgba(147,51,234,0.6),
+    0 0 40px rgba(192,132,252,0.6) !important;
+}
+
+.left:hover a,
+div.left:hover a {
+  color: #fde68a !important;
+  text-shadow: 0 3px 12px rgba(253,224,71,0.9) !important;
+}
+
+/* ==========================================
+   SPECIAL NAVIGATION BUTTONS
+   View Breeding Requests, User Log, Attack History
+   ========================================== */
+
+/* Row container for navigation buttons */
+.row > .col,
+.row > .col-sm-4,
+.row > [class*="col-"],
+body .row > .col,
+body .row > .col-sm-4 {
+  padding: 5px !important;
+}
+
+/* Navigation button divs */
+.row a div.left,
+body .row a div.left,
+.row > .col a div.left,
+.row > .col-sm-4 a div.left,
+body .row > .col a div.left {
+  background: linear-gradient(135deg,
+    rgba(91,42,143,0.88) 0%,
+    rgba(124,58,170,0.85) 100%) !important;
+  border: 3px solid rgba(192,132,252,0.5) !important;
+  border-radius: 14px !important;
+  padding: 18px 20px !important;
+  margin: 0 !important;
+  color: #f3e5ff !important;
+  font-family: 'Quicksand', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  text-align: center !important;
+  box-shadow: 
+    0 6px 20px rgba(0,0,0,0.4),
+    inset 0 2px 4px rgba(255,255,255,0.1),
+    0 0 25px rgba(147,51,234,0.3) !important;
+  transition: all 0.3s ease !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6) !important;
+  display: block !important;
+  min-height: 60px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.row a:hover div.left,
+body .row a:hover div.left,
+.row > .col a:hover div.left {
+  background: linear-gradient(135deg,
+    rgba(138,43,226,0.92) 0%,
+    rgba(168,85,247,0.88) 100%) !important;
+  border-color: rgba(253,224,71,0.7) !important;
+  color: #fde68a !important;
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 
+    0 10px 30px rgba(147,51,234,0.6),
+    0 0 40px rgba(192,132,252,0.6) !important;
+  text-shadow: 0 3px 12px rgba(253,224,71,0.9) !important;
+}
+
+.row a:active div.left,
+body .row a:active div.left {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important;
+}
+
+/* Mobile optimization for navigation buttons */
+@media (max-width: 768px) {
+  .row a div.left,
+  body .row a div.left,
+  .row > .col a div.left {
+    padding: 20px 16px !important;
+    font-size: 17px !important;
+    min-height: 70px !important;
+  }
+}
+
+/* ==========================================
+   ADDITIONAL OVERRIDES - Content areas
+   ========================================== */
+
+/* Main content column - the big grey box holding caves/content */
+#pageContainer,
+.col-md-9,
+div#pageContainer,
+div.col-md-9,
+body #pageContainer,
+body div#pageContainer,
+body .col-md-9 {
+  background: transparent !important;
+}
+
+/* Alert boxes */
+.alert,
+div.alert,
+body .alert,
+body div.alert {
+  background: rgba(91,42,143,0.75) !important;
+  border: 2px solid rgba(192,132,252,0.5) !important;
+  border-radius: 12px !important;
+  color: #f3e5ff !important;
+  padding: 14px 18px !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4) !important;
+}
+
+.alert-success,
+body .alert-success {
+  background: rgba(91,42,143,0.8) !important;
+  border-color: rgba(34,197,94,0.6) !important;
+}
+
+.alert-danger,
+body .alert-danger {
+  background: rgba(138,43,226,0.8) !important;
+  border-color: rgba(239,68,68,0.6) !important;
+}
+
+/* Feature boxes */
+.feature,
+div.feature,
+body .feature {
+  background: linear-gradient(135deg,
+    rgba(138,43,226,0.85) 0%,
+    rgba(168,85,247,0.8) 100%) !important;
+  border: 3px solid rgba(192,132,252,0.5) !important;
+  border-radius: 14px !important;
+  padding: 16px 20px !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 
+    0 8px 25px rgba(0,0,0,0.5),
+    0 0 35px rgba(147,51,234,0.4) !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6) !important;
+}
+
+/* Center container */
+center,
+body center {
+  background: transparent !important;
+}
+
+/* ==========================================
+   ORNATE FRAME HELPERS
+   - `.ornate-frame` gives a layered CSS frame/fallback using box-shadows
+   - `.ornate-image-border` uses a remote image as a `border-image` when allowed
+   Apply these classes to sections you want framed (eg. `.panel`, `.container.main`, `.cave-grid`) */
+
+.ornate-frame {
+  position: relative !important;
+  border-radius: 18px !important;
+  padding: 12px !important;
+  /* layered rings to emulate a decorative frame */
+  box-shadow:
+    0 0 0 6px rgba(147,51,234,0.12) inset,
+    0 0 0 10px rgba(61,26,95,0.08),
+    0 12px 30px rgba(0,0,0,0.45);
+  background-clip: padding-box !important;
+}
+
+/* Optional translucent decorative outer glow */
+.ornate-frame::after {
+  content: "" !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  left: -10px !important;
+  right: -10px !important;
+  top: -10px !important;
+  bottom: -10px !important;
+  border-radius: 22px !important;
+  box-shadow: 0 0 40px rgba(147,51,234,0.18) !important;
+}
+
+/* Image-based border if remote assets are allowed. Uses same image you provided. */
+.ornate-image-border {
+  border: 12px solid transparent !important;
+  border-image-source: url('https://i.postimg.cc/W1m28Cr3/94b8c59273ef2fed2806cb1650b16ee1-removebg-preview.png') !important;
+  border-image-slice: 30 fill !important;
+  border-image-width: 12px !important;
+  border-image-outset: 0 !important;
+  border-image-repeat: round !important;
+  border-radius: 18px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45) !important;
+}
+
+/* Utility: apply ornate frame to common containers by default (optional)
+   Uncomment the selectors below if you want borders applied site-wide.
+   (I left them commented so you can enable selectively.) */
+/*
+.container.main,
+.panel,
+.table,
+.cave-grid,
+.mound-grid {
+  /* To apply the ornate frame site-wide, add the class `.ornate-frame` to
+     these selectors in markup or enable here manually. */
+}
+*/
+
+/* ==========================================
+   END OF PURPLE HYACINTH CAVE
+   May your cave bloom with eternal beauty
+   ========================================== */
+
+/* ==========================================
+   PERSONAL IMAGE CUSTOMIZATION REMOVED
+   
+   This section previously contained CSS rules that replaced
+   banner and cave images with hardcoded URLs specific to the
+   theme creator. These rules have been removed to make the
+   theme universal for all users.
+   
+   If you wish to customize your profile with your own images:
+   1. See CUSTOMIZATION-GUIDE.md for instructions
+   2. Add your own CSS rules locally for banner/cave replacements
+   3. Keep your customizations in a separate file or section
+   
+   The decorative theme elements (gradients, borders, glows,
+   animations, and ornate frames) remain intact below.
+   ========================================== */
+
+
+
+/*
+Drop the firefly overlay fragment below into your den HTML (inside
+#fraProfileContent or another allowed area). It's included here as a
+copy so you can paste it directly without opening another file.
+
+BEGIN FIRELFY FRAGMENT
+
+<div id="firefly-overlay" style="
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  pointer-events:none;
+  overflow:hidden;
+">
+  <div id="firefly-fallback" style="position:absolute;inset:0;pointer-events:none;">
+    <span style="position:absolute;left:8%;top:12%;width:6px;height:6px;border-radius:50%;background:radial-gradient(circle,#fff 0%,#fffbcc 35%,#ffd86b 60%);box-shadow:0 0 14px rgba(255,216,107,0.9);opacity:0.9;pointer-events:none"></span>
+    <span style="position:absolute;left:42%;top:24%;width:6px;height:6px;border-radius:50%;background:radial-gradient(circle,#fff 0%,#fffbcc 35%,#ffd86b 60%);box-shadow:0 0 12px rgba(255,216,107,0.85);opacity:0.85;pointer-events:none"></span>
+    <span style="position:absolute;left:78%;top:60%;width:6px;height:6px;border-radius:50%;background:radial-gradient(circle,#fff 0%,#fffbcc 35%,#ffd86b 60%);box-shadow:0 0 12px rgba(255,216,107,0.85);opacity:0.8;pointer-events:none"></span>
+  </div>
+</div>
+
+<script>
+(function(){
+  try {
+    const COUNT = 14;
+    const area = document.getElementById('firefly-overlay');
+    const fallback = document.getElementById('firefly-fallback');
+    if (fallback) fallback.parentNode && fallback.parentNode.removeChild(fallback);
+
+    const fireflies = [];
+    const docW = () => window.innerWidth || document.documentElement.clientWidth;
+    const docH = () => window.innerHeight || document.documentElement.clientHeight;
+
+    for (let i = 0; i < COUNT; i++) {
+      const el = document.createElement('span');
+      let x = Math.random() * docW();
+      let y = Math.random() * docH();
+      const speed = 0.2 + Math.random() * 0.9;
+      const angle = Math.random() * Math.PI * 2;
+      const vx = Math.cos(angle) * speed;
+      const vy = Math.sin(angle) * speed * 0.6;
+      const flickerAmp = 0.35 + Math.random() * 0.6;
+      const flickerFreq = 0.004 + Math.random() * 0.01;
+      const driftAmp = 6 + Math.random() * 20;
+      const driftFreq = 0.002 + Math.random() * 0.006;
+      const size = 6 + Math.random() * 8;
+
+      el.style.position = 'absolute';
+      el.style.left = x + 'px';
+      el.style.top = y + 'px';
+      el.style.width = size + 'px';
+      el.style.height = size + 'px';
+      el.style.borderRadius = '50%';
+      el.style.pointerEvents = 'none';
+      el.style.transform = 'translate(-50%, -50%)';
+      el.style.background = 'radial-gradient(circle, #fff 0%, #fffbcc 28%, #ffd86b 60%)';
+      el.style.boxShadow = '0 0 10px rgba(255,216,107,0.95), 0 0 24px rgba(192,132,252,0.14)';
+      el.style.opacity = 0.9;
+
+      area.appendChild(el);
+
+      fireflies.push({ el, x, y, vx, vy, flickerAmp, flickerFreq, driftAmp, driftFreq, size, phase: Math.random() * 10000 });
+    }
+
+    let last = performance.now();
+    function step(now) {
+      const dt = now - last;
+      last = now;
+
+      const w = docW();
+      const h = docH();
+
+      for (const f of fireflies) {
+        f.phase += dt;
+        const dx = Math.sin(f.phase * f.driftFreq) * f.driftAmp;
+        const dy = Math.cos(f.phase * f.driftFreq * 0.9) * (f.driftAmp * 0.5);
+
+        f.x += f.vx * (dt * 0.06) + dx * 0.002;
+        f.y += f.vy * (dt * 0.06) + dy * 0.002;
+
+        if (f.x < -20) f.x = w + 20;
+        if (f.x > w + 20) f.x = -20;
+        if (f.y < -20) f.y = h + 20;
+        if (f.y > h + 20) f.y = -20;
+
+        const flick = 0.7 + Math.abs(Math.sin(f.phase * f.flickerFreq)) * f.flickerAmp;
+        const scale = 0.8 + Math.abs(Math.cos(f.phase * f.flickerFreq * 0.7)) * 0.6;
+
+        f.el.style.left = f.x + 'px';
+        f.el.style.top = f.y + 'px';
+        f.el.style.opacity = Math.min(1, flick).toFixed(2);
+        f.el.style.transform = `translate(-50%, -50%) scale(${scale.toFixed(2)})`;
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        fireflies.forEach(f => { f.el.style.transition = 'opacity 0.6s linear'; f.el.style.opacity = '0.0'; });
+      } else {
+        fireflies.forEach(f => f.el.style.opacity = '0.9');
+      }
+    });
+
+    window.__fireflyOverlay = { remove: function(){ area.parentNode && area.parentNode.removeChild(area); } };
+  } catch (e) { console.error('Firefly overlay failed:', e); }
+})();
+</script>
+
+END FIRELFY FRAGMENT
+*/
+
+/* ==========================================
+   LION HEADSHOT ORNATE OVERLAY
+   Adds an overlay image aligned to the lion headshot block so the
+   decorative frame lines up with in-image decor like
+   <img data-type="decor" src=".../albinobee1.png">.
+
+   The overlay is non-interactive (`pointer-events: none`) and scaled
+   to the headshot container. If you want the overlay only when a
+   specific decor is present, we can instead add a class server-side
+   or via inline markup; for now this applies to all headshot blocks.
+========================================== */
+
+/* Ensure headshot image displays and is stacked between ornament and frame */
+.lion-image-block[data-image-type="headshot"] img {
+  position: relative !important;
+  /* image should sit above page/background overlays but below the ornament (::after) */
+  z-index: 85 !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  max-width: none !important;
+}
+
+/* Ensure headshot images are visible and not accidentally hidden */
+.lion-image-block img {
+  display: block !important;
+  opacity: 1 !important;
+}
+
+/* Decorative overlay placed over the headshot area
+   Hidden by default; shown only when a decor image exists using :has()
+   (modern browsers). For older browsers the overlay will not appear. */
+.lion-image-block[data-image-type="headshot"]::after {
+  content: "" !important;
+  position: absolute !important;
+  /* Make overlay visible by default (avoid :has() dependency) */
+  display: block !important;
+  pointer-events: none !important;
+  background-image: url('https://i.postimg.cc/W1m28Cr3/94b8c59273ef2fed2806cb1650b16ee1-removebg-preview.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  /* Use contain so the overlay scales within the headshot box */
+  background-size: contain !important;
+  opacity: 0.95 !important;
+  /* place the ornament in front of the portrait (but below the frame) */
+  z-index: 80 !important;
+  /* default inset so border-image remains visible */
+  top: 12px !important;
+  left: 12px !important;
+  right: 12px !important;
+  bottom: 12px !important;
+}
+
+/* Show overlay inset inside the decorative border when ANY decor exists */
+.lion-image-block[data-image-type="headshot"]:has(img[data-type="decor"])::after {
+  /* kept for compatibility in browsers that support :has() */
+  /* no-op — base rule makes overlay visible and inset */
+}
+
+/* If the specific albinobee decor is present, position the overlay where that decor is (top-left)
+   Adjust width/height to sit over the headshot area where the decor normally appears. */
+.lion-image-block[data-image-type="headshot"]:has(img[data-type="decor"][src*="albinobee1.png"])::after {
+  /* kept for modern browsers; base rule already covers display/position */
+}
+
+/* Re-add an ornate image border around the headshot itself so the
+   king gets the decorative frame. Uses border-image so it behaves like
+   a real frame and won't obscure the image. */
+.lion-image-block[data-image-type="headshot"] {
+  position: relative !important;
+  box-sizing: border-box !important;
+  border: none !important;
+  border-radius: 18px !important;
+  padding: 6px !important;
+  background-clip: padding-box !important;
+  /* Add a subtle purple outline so the frame color matches the den theme */
+  box-shadow: 0 0 0 4px rgba(192,132,252,0.24), inset 0 0 0 6px rgba(61,26,95,0.06) !important;
+}
+
+/* Render the ornate frame as a top-layer pseudo element so it sits above
+   the ornament overlay but doesn't obscure the portrait itself. */
+.lion-image-block[data-image-type="headshot"]::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background-image: url('https://i.postimg.cc/W1m28Cr3/94b8c59273ef2fed2806cb1650b16ee1-removebg-preview.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 100% 100% !important;
+  border-radius: 18px !important;
+  z-index: 95 !important;
+}
+
+/* Ensure the headshot image sits above ornament but below the frame */
+.lion-image-block[data-image-type="headshot"] img {
+  position: relative !important;
+  /* ensure consistent stacking and visibility */
+  z-index: 85 !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  max-width: none !important;
+}
+
+/* If the overlay looks too large/small on some screen sizes adjust here */
+@media (min-width: 1200px) {
+  .lion-image-block[data-image-type="headshot"]::after {
+    background-size: 100% 100% !important;
+  }
+}
+
+/* ==========================================
+   PURPLE FIREFLY OVERLAY
+   Creates a Lioden-safe decorative overlay of small purple glowing
+   fireflies using layered radial-gradients on `body::before`.
+   This method uses only CSS (no extra DOM) and should work when
+   pasted into site CSS. It includes a reduced-motion fallback.
+========================================== */
+
+body::before {
+  content: "" !important;
+  position: fixed !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  /* Keep firefly/background decorative layer behind main UI elements
+     so headshots and UI controls remain clickable/visible. */
+  z-index: 2 !important;
+  mix-blend-mode: screen !important;
+  opacity: 0.95 !important;
+  /* multiple small glowing dots (fireflies) as radial gradients */
+  background-image:
+    radial-gradient(circle, rgba(192,132,252,0.95) 0 6px, rgba(192,132,252,0.28) 9px, transparent 12px),
+    radial-gradient(circle, rgba(168,85,247,0.95) 0 5px, rgba(168,85,247,0.26) 8px, transparent 11px),
+    radial-gradient(circle, rgba(147,51,234,0.95) 0 6px, rgba(147,51,234,0.22) 9px, transparent 12px),
+    radial-gradient(circle, rgba(203,153,255,0.95) 0 4px, rgba(203,153,255,0.18) 7px, transparent 10px),
+    radial-gradient(circle, rgba(138,43,226,0.95) 0 5px, rgba(138,43,226,0.2) 8px, transparent 11px),
+    radial-gradient(circle, rgba(220,180,255,0.95) 0 3px, rgba(220,180,255,0.16) 6px, transparent 9px);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat !important;
+  /* initial positions; will be animated across the viewport */
+  background-position: 10% 20%, 30% 40%, 55% 15%, 70% 35%, 85% 60%, 40% 75% !important;
+  background-size: 40px 40px, 34px 34px, 46px 46px, 28px 28px, 36px 36px, 22px 22px !important;
+  animation: purpleFireflies 18s linear infinite !important;
+}
+
+@keyframes purpleFireflies {
+  0% {
+    background-position: 5% 10%, 25% 30%, 50% 10%, 75% 25%, 90% 55%, 35% 70%;
+    opacity: 0.95;
+  }
+  25% {
+    background-position: 15% 40%, 35% 10%, 60% 25%, 65% 45%, 80% 30%, 45% 85%;
+  }
+  50% {
+    background-position: 25% 15%, 45% 50%, 70% 5%, 55% 70%, 60% 80%, 55% 30%;
+  }
+  75% {
+    background-position: 12% 50%, 20% 28%, 40% 60%, 85% 20%, 95% 70%, 25% 40%;
+  }
+  100% {
+    background-position: 5% 10%, 25% 30%, 50% 10%, 75% 25%, 90% 55%, 35% 70%;
+  }
+}
+
+/* ==================================================
+   Force headshot layer visibility & stacking
+   Ensures composed lion images (background, base,
+   markings, eyes, mane, decor) render in correct order
+   and are not hidden by other site CSS.
+   ================================================== */
+
+/* Ensure the container exists and is positioned for absolute stacking */
+#lion_image,
+.lion-image-block,
+.lionImage.featured-lion .lion-image-block {
+  position: relative !important;
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+/* Force exact headshot size requested by user */
+.lion-image-block[data-image-type="headshot"],
+#lion_image {
+  width: 200.01px !important;
+  height: 200.01px !important;
+  min-width: 200.01px !important;
+  min-height: 200.01px !important;
+  max-width: 200.01px !important;
+  max-height: 200.01px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+/* Ensure each layered IMG inside the headshot uses the explicit size */
+.lion-image-block[data-image-type="headshot"] img {
+  width: 200.01px !important;
+  height: 200.01px !important;
+  max-width: 200.01px !important;
+  max-height: 200.01px !important;
+  object-fit: contain !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+/* Base background layer (fur/background) */
+.lion-image-block img[data-layer="background"],
+.lion-image-block img[src*="/backgrounds/"] {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 10 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  max-width: none !important;
+}
+
+/* Main base/markings/lineart/eyes/mane/nose layers */
+.lion-image-block img[src*="/bases/"],
+.lion-image-block img[src*="/markings/"],
+.lion-image-block img[src*="/lineart"],
+.lion-image-block img[src*="/eyes/"],
+.lion-image-block img[src*="/normal/"],
+.lion-image-block img[src*="/noses/"],
+.lion-image-block img[src*="/piebald/"] {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 50 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  max-width: none !important;
+}
+
+/* Decorative overlay (decor) should appear in front of the portrait but below the frame */
+.lion-image-block img[data-type="decor"],
+.lion-image-block img[src*="/battleDecors/"] {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 80 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* A general fallback to ensure any hidden IMG inside a lion block is visible */
+.lion-image-block img {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  max-width: none !important;
+}
+
+/* Make sure the frame pseudo-element remains on top */
+.lion-image-block[data-image-type="headshot"]::before {
+  z-index: 95 !important;
+}
+
+
+/* subtle twinkle via opacity flicker on a second, slower animation */
+body::after {
+  content: "" !important;
+  position: fixed !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  z-index: 26 !important;
+  opacity: 0.12 !important;
+  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.06) 0 8%, transparent 30%),
+              radial-gradient(circle at 80% 70%, rgba(255,255,255,0.05) 0 6%, transparent 30%) !important;
+  background-repeat: no-repeat !important;
+  animation: fireflyFlicker 6s ease-in-out infinite !important;
+}
+
+@keyframes fireflyFlicker {
+  0% { opacity: 0.12 }
+  50% { opacity: 0.03 }
+  100% { opacity: 0.12 }
+}
+
+/* Respect user reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    animation: none !important;
+    opacity: 0.9 !important;
+  }
+}
+
