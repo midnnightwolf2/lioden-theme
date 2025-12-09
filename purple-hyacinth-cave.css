@@ -2186,7 +2186,7 @@ Drop the firefly overlay fragment below into your den HTML (inside
 #fraProfileContent or another allowed area). It's included here as a
 copy so you can paste it directly without opening another file.
 
-BEGIN FIRELFY FRAGMENT
+BEGIN FIREFLY FRAGMENT
 
 <div id="firefly-overlay" style="
   position:fixed;
@@ -2293,7 +2293,7 @@ BEGIN FIRELFY FRAGMENT
 })();
 </script>
 
-END FIRELFY FRAGMENT
+END FIREFLY FRAGMENT
 */
 
 /* ==========================================
@@ -2571,16 +2571,16 @@ body::after {
   pointer-events: none !important;
   z-index: 26 !important;
   opacity: 0.12 !important;
-  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.06) 0 8%, transparent 30%),
-              radial-gradient(circle at 80% 70%, rgba(255,255,255,0.05) 0 6%, transparent 30%) !important;
+  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.06) 8%, transparent 30%),
+              radial-gradient(circle at 80% 70%, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 6%, transparent 30%) !important;
   background-repeat: no-repeat !important;
   animation: fireflyFlicker 6s ease-in-out infinite !important;
 }
 
 @keyframes fireflyFlicker {
-  0% { opacity: 0.12 }
-  50% { opacity: 0.03 }
-  100% { opacity: 0.12 }
+  0% { opacity: 0.12; }
+  50% { opacity: 0.03; }
+  100% { opacity: 0.12; }
 }
 
 /* Respect user reduced motion preferences */
