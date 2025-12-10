@@ -2129,45 +2129,15 @@ body center {
 
 /* ==================================================
    Force headshot layer visibility & stacking
-   Ensures composed lion images (background, base,
-   markings, eyes, mane, decor) render in correct order
-   and are not hidden by other site CSS.
+   Ensures composed lion images are visible and not hidden by other site CSS.
    ================================================== */
 
-/* Ensure the container exists and is positioned for absolute stacking */
+/* Ensure the container exists and is positioned */
 #lion_image,
 .lion-image-block,
 .lionImage.featured-lion .lion-image-block {
   position: relative !important;
   display: block !important;
-  width: auto !important;
-  height: auto !important;
-  overflow: visible !important;
-}
-
-/* Force exact headshot size requested by user */
-.lion-image-block[data-image-type="headshot"],
-#lion_image {
-  width: 200.01px !important;
-  height: 200.01px !important;
-  min-width: 200.01px !important;
-  min-height: 200.01px !important;
-  max-width: 200.01px !important;
-  max-height: 200.01px !important;
-  box-sizing: border-box !important;
-  overflow: hidden !important;
-}
-
-/* Ensure each layered IMG inside the headshot uses the explicit size */
-.lion-image-block[data-image-type="headshot"] img {
-  width: 200.01px !important;
-  height: 200.01px !important;
-  max-width: 200.01px !important;
-  max-height: 200.01px !important;
-  object-fit: contain !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
 }
 
 /* Ensure all lion image layers are visible */
