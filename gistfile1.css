@@ -2138,13 +2138,16 @@ body center {
 .lionImage.featured-lion .lion-image-block {
   position: relative !important;
   display: block !important;
+  max-width: 100% !important;
 }
 
-/* Ensure all lion image layers are visible */
+/* Ensure all lion image layers are visible and sized appropriately */
 .lion-image-block img {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
+  max-width: 100% !important;
+  height: auto !important;
 }
 
 
