@@ -2101,6 +2101,63 @@ body center {
 }
 
 /* ==========================================
+   ORNATE FRAME HELPERS
+   - `.ornate-frame` gives a layered CSS frame/fallback using box-shadows
+   - `.ornate-image-border` uses a remote image as a `border-image` when allowed
+   Apply these classes to sections you want framed (eg. `.panel`, `.container.main`, `.cave-grid`) */
+
+.ornate-frame {
+  position: relative !important;
+  border-radius: 18px !important;
+  padding: 12px !important;
+  /* layered rings to emulate a decorative frame */
+  box-shadow:
+    0 0 0 6px rgba(147,51,234,0.12) inset,
+    0 0 0 10px rgba(61,26,95,0.08),
+    0 12px 30px rgba(0,0,0,0.45);
+  background-clip: padding-box !important;
+}
+
+/* Optional translucent decorative outer glow */
+.ornate-frame::after {
+  content: "" !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  left: -10px !important;
+  right: -10px !important;
+  top: -10px !important;
+  bottom: -10px !important;
+  border-radius: 22px !important;
+  box-shadow: 0 0 40px rgba(147,51,234,0.18) !important;
+}
+
+/* Image-based border if remote assets are allowed. Uses same image you provided. */
+.ornate-image-border {
+  border: 12px solid transparent !important;
+  border-image-source: url('https://i.postimg.cc/W1m28Cr3/94b8c59273ef2fed2806cb1650b16ee1-removebg-preview.png') !important;
+  border-image-slice: 30 fill !important;
+  border-image-width: 12px !important;
+  border-image-outset: 0 !important;
+  border-image-repeat: round !important;
+  border-radius: 18px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45) !important;
+}
+
+/* Utility: apply ornate frame to common containers by default (optional)
+   Uncomment the selectors below if you want borders applied site-wide.
+   (I left them commented so you can enable selectively.) */
+/*
+.container.main,
+.panel,
+.table,
+.cave-grid,
+.mound-grid {
+  /* To apply the ornate frame site-wide, add the class `.ornate-frame` to
+     these selectors in markup or enable here manually. */
+}
+*/
+
+/* ==========================================
    END OF PURPLE HYACINTH CAVE
    May your cave bloom with eternal beauty
    ========================================== */
@@ -2113,42 +2170,425 @@ body center {
    theme creator. These rules have been removed to make the
    theme universal for all users.
    
-   Additionally, ornate frame overlays that were applied to
-   lion/king headshot images have been removed to prevent
-   interference with profile displays.
-   
    If you wish to customize your profile with your own images:
    1. See CUSTOMIZATION-GUIDE.md for instructions
    2. Add your own CSS rules locally for banner/cave replacements
    3. Keep your customizations in a separate file or section
    
    The decorative theme elements (gradients, borders, glows,
-   and animations) remain intact.
+   animations, and ornate frames) remain intact below.
    ========================================== */
 
 
+
+/*
+Drop the firefly overlay fragment below into your den HTML (inside
+#fraProfileContent or another allowed area). It's included here as a
+copy so you can paste it directly without opening another file.
+
+BEGIN FIREFLY FRAGMENT
+
+<div id="firefly-overlay" style="
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  pointer-events:none;
+  overflow:hidden;
+">
+  <div id="firefly-fallback" style="position:absolute;inset:0;pointer-events:none;">
+    <span style="position:absolute;left:8%;top:12%;width:6px;height:6px;border-radius:50%;background:radial-gradient(circle,#fff 0%,#fffbcc 35%,#ffd86b 60%);box-shadow:0 0 14px rgba(255,216,107,0.9);opacity:0.9;pointer-events:none"></span>
+    <span style="position:absolute;left:42%;top:24%;width:6px;height:6px;border-radius:50%;background:radial-gradient(circle,#fff 0%,#fffbcc 35%,#ffd86b 60%);box-shadow:0 0 12px rgba(255,216,107,0.85);opacity:0.85;pointer-events:none"></span>
+    <span style="position:absolute;left:78%;top:60%;width:6px;height:6px;border-radius:50%;background:radial-gradient(circle,#fff 0%,#fffbcc 35%,#ffd86b 60%);box-shadow:0 0 12px rgba(255,216,107,0.85);opacity:0.8;pointer-events:none"></span>
+  </div>
+</div>
+
+<script>
+(function(){
+  try {
+    const COUNT = 14;
+    const area = document.getElementById('firefly-overlay');
+    const fallback = document.getElementById('firefly-fallback');
+    if (fallback) fallback.parentNode && fallback.parentNode.removeChild(fallback);
+
+    const fireflies = [];
+    const docW = () => window.innerWidth || document.documentElement.clientWidth;
+    const docH = () => window.innerHeight || document.documentElement.clientHeight;
+
+    for (let i = 0; i < COUNT; i++) {
+      const el = document.createElement('span');
+      let x = Math.random() * docW();
+      let y = Math.random() * docH();
+      const speed = 0.2 + Math.random() * 0.9;
+      const angle = Math.random() * Math.PI * 2;
+      const vx = Math.cos(angle) * speed;
+      const vy = Math.sin(angle) * speed * 0.6;
+      const flickerAmp = 0.35 + Math.random() * 0.6;
+      const flickerFreq = 0.004 + Math.random() * 0.01;
+      const driftAmp = 6 + Math.random() * 20;
+      const driftFreq = 0.002 + Math.random() * 0.006;
+      const size = 6 + Math.random() * 8;
+
+      el.style.position = 'absolute';
+      el.style.left = x + 'px';
+      el.style.top = y + 'px';
+      el.style.width = size + 'px';
+      el.style.height = size + 'px';
+      el.style.borderRadius = '50%';
+      el.style.pointerEvents = 'none';
+      el.style.transform = 'translate(-50%, -50%)';
+      el.style.background = 'radial-gradient(circle, #fff 0%, #fffbcc 28%, #ffd86b 60%)';
+      el.style.boxShadow = '0 0 10px rgba(255,216,107,0.95), 0 0 24px rgba(192,132,252,0.14)';
+      el.style.opacity = 0.9;
+
+      area.appendChild(el);
+
+      fireflies.push({ el, x, y, vx, vy, flickerAmp, flickerFreq, driftAmp, driftFreq, size, phase: Math.random() * 10000 });
+    }
+
+    let last = performance.now();
+    function step(now) {
+      const dt = now - last;
+      last = now;
+
+      const w = docW();
+      const h = docH();
+
+      for (const f of fireflies) {
+        f.phase += dt;
+        const dx = Math.sin(f.phase * f.driftFreq) * f.driftAmp;
+        const dy = Math.cos(f.phase * f.driftFreq * 0.9) * (f.driftAmp * 0.5);
+
+        f.x += f.vx * (dt * 0.06) + dx * 0.002;
+        f.y += f.vy * (dt * 0.06) + dy * 0.002;
+
+        if (f.x < -20) f.x = w + 20;
+        if (f.x > w + 20) f.x = -20;
+        if (f.y < -20) f.y = h + 20;
+        if (f.y > h + 20) f.y = -20;
+
+        const flick = 0.7 + Math.abs(Math.sin(f.phase * f.flickerFreq)) * f.flickerAmp;
+        const scale = 0.8 + Math.abs(Math.cos(f.phase * f.flickerFreq * 0.7)) * 0.6;
+
+        f.el.style.left = f.x + 'px';
+        f.el.style.top = f.y + 'px';
+        f.el.style.opacity = Math.min(1, flick).toFixed(2);
+        f.el.style.transform = `translate(-50%, -50%) scale(${scale.toFixed(2)})`;
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        fireflies.forEach(f => { f.el.style.transition = 'opacity 0.6s linear'; f.el.style.opacity = '0.0'; });
+      } else {
+        fireflies.forEach(f => f.el.style.opacity = '0.9');
+      }
+    });
+
+    window.__fireflyOverlay = { remove: function(){ area.parentNode && area.parentNode.removeChild(area); } };
+  } catch (e) { console.error('Firefly overlay failed:', e); }
+})();
+</script>
+
+END FIREFLY FRAGMENT
+*/
+
+/* ==========================================
+   LION HEADSHOT ORNATE OVERLAY
+   Adds an overlay image aligned to the lion headshot block so the
+   decorative frame lines up with in-image decor like
+   <img data-type="decor" src=".../albinobee1.png">.
+
+   The overlay is non-interactive (`pointer-events: none`) and scaled
+   to the headshot container. If you want the overlay only when a
+   specific decor is present, we can instead add a class server-side
+   or via inline markup; for now this applies to all headshot blocks.
+========================================== */
+
+/* Ensure headshot image displays and is stacked between ornament and frame */
+.lion-image-block[data-image-type="headshot"] img {
+  position: relative !important;
+  /* image should sit above page/background overlays but below the ornament (::after) */
+  z-index: 85 !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  max-width: none !important;
+}
+
+/* Ensure headshot images are visible and not accidentally hidden */
+.lion-image-block img {
+  display: block !important;
+  opacity: 1 !important;
+}
+
+/* Decorative overlay placed over the headshot area
+   Hidden by default; shown only when a decor image exists using :has()
+   (modern browsers). For older browsers the overlay will not appear. */
+.lion-image-block[data-image-type="headshot"]::after {
+  content: "" !important;
+  position: absolute !important;
+  /* Make overlay visible by default (avoid :has() dependency) */
+  display: block !important;
+  pointer-events: none !important;
+  background-image: url('https://i.postimg.cc/W1m28Cr3/94b8c59273ef2fed2806cb1650b16ee1-removebg-preview.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  /* Use contain so the overlay scales within the headshot box */
+  background-size: contain !important;
+  opacity: 0.95 !important;
+  /* place the ornament in front of the portrait (but below the frame) */
+  z-index: 80 !important;
+  /* default inset so border-image remains visible */
+  top: 12px !important;
+  left: 12px !important;
+  right: 12px !important;
+  bottom: 12px !important;
+}
+
+/* Show overlay inset inside the decorative border when ANY decor exists */
+.lion-image-block[data-image-type="headshot"]:has(img[data-type="decor"])::after {
+  /* kept for compatibility in browsers that support :has() */
+  /* no-op — base rule makes overlay visible and inset */
+}
+
+/* If the specific albinobee decor is present, position the overlay where that decor is (top-left)
+   Adjust width/height to sit over the headshot area where the decor normally appears. */
+.lion-image-block[data-image-type="headshot"]:has(img[data-type="decor"][src*="albinobee1.png"])::after {
+  /* kept for modern browsers; base rule already covers display/position */
+}
+
+/* Re-add an ornate image border around the headshot itself so the
+   king gets the decorative frame. Uses border-image so it behaves like
+   a real frame and won't obscure the image. */
+.lion-image-block[data-image-type="headshot"] {
+  position: relative !important;
+  box-sizing: border-box !important;
+  border: none !important;
+  border-radius: 18px !important;
+  padding: 6px !important;
+  background-clip: padding-box !important;
+  /* Add a subtle purple outline so the frame color matches the den theme */
+  box-shadow: 0 0 0 4px rgba(192,132,252,0.24), inset 0 0 0 6px rgba(61,26,95,0.06) !important;
+}
+
+/* Render the ornate frame as a top-layer pseudo element so it sits above
+   the ornament overlay but doesn't obscure the portrait itself. */
+.lion-image-block[data-image-type="headshot"]::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background-image: url('https://i.postimg.cc/W1m28Cr3/94b8c59273ef2fed2806cb1650b16ee1-removebg-preview.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 100% 100% !important;
+  border-radius: 18px !important;
+  z-index: 95 !important;
+}
+
+/* Ensure the headshot image sits above ornament but below the frame */
+.lion-image-block[data-image-type="headshot"] img {
+  position: relative !important;
+  /* ensure consistent stacking and visibility */
+  z-index: 85 !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  max-width: none !important;
+}
+
+/* If the overlay looks too large/small on some screen sizes adjust here */
+@media (min-width: 1200px) {
+  .lion-image-block[data-image-type="headshot"]::after {
+    background-size: 100% 100% !important;
+  }
+}
+
+/* ==========================================
+   PURPLE FIREFLY OVERLAY
+   Creates a Lioden-safe decorative overlay of small purple glowing
+   fireflies using layered radial-gradients on `body::before`.
+   This method uses only CSS (no extra DOM) and should work when
+   pasted into site CSS. It includes a reduced-motion fallback.
+========================================== */
+
+body::before {
+  content: "" !important;
+  position: fixed !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  /* Keep firefly/background decorative layer behind main UI elements
+     so headshots and UI controls remain clickable/visible. */
+  z-index: 2 !important;
+  mix-blend-mode: screen !important;
+  opacity: 0.95 !important;
+  /* multiple small glowing dots (fireflies) as radial gradients */
+  background-image:
+    radial-gradient(circle, rgba(192,132,252,0.95) 0 6px, rgba(192,132,252,0.28) 9px, transparent 12px),
+    radial-gradient(circle, rgba(168,85,247,0.95) 0 5px, rgba(168,85,247,0.26) 8px, transparent 11px),
+    radial-gradient(circle, rgba(147,51,234,0.95) 0 6px, rgba(147,51,234,0.22) 9px, transparent 12px),
+    radial-gradient(circle, rgba(203,153,255,0.95) 0 4px, rgba(203,153,255,0.18) 7px, transparent 10px),
+    radial-gradient(circle, rgba(138,43,226,0.95) 0 5px, rgba(138,43,226,0.2) 8px, transparent 11px),
+    radial-gradient(circle, rgba(220,180,255,0.95) 0 3px, rgba(220,180,255,0.16) 6px, transparent 9px);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat !important;
+  /* initial positions; will be animated across the viewport */
+  background-position: 10% 20%, 30% 40%, 55% 15%, 70% 35%, 85% 60%, 40% 75% !important;
+  background-size: 40px 40px, 34px 34px, 46px 46px, 28px 28px, 36px 36px, 22px 22px !important;
+  animation: purpleFireflies 18s linear infinite !important;
+}
+
+@keyframes purpleFireflies {
+  0% {
+    background-position: 5% 10%, 25% 30%, 50% 10%, 75% 25%, 90% 55%, 35% 70%;
+    opacity: 0.95;
+  }
+  25% {
+    background-position: 15% 40%, 35% 10%, 60% 25%, 65% 45%, 80% 30%, 45% 85%;
+  }
+  50% {
+    background-position: 25% 15%, 45% 50%, 70% 5%, 55% 70%, 60% 80%, 55% 30%;
+  }
+  75% {
+    background-position: 12% 50%, 20% 28%, 40% 60%, 85% 20%, 95% 70%, 25% 40%;
+  }
+  100% {
+    background-position: 5% 10%, 25% 30%, 50% 10%, 75% 25%, 90% 55%, 35% 70%;
+  }
+}
+
 /* ==================================================
    Force headshot layer visibility & stacking
-   Ensures composed lion images are visible and not hidden by other site CSS.
+   Ensures composed lion images (background, base,
+   markings, eyes, mane, decor) render in correct order
+   and are not hidden by other site CSS.
    ================================================== */
 
-/* Ensure the container exists and is positioned */
+/* Ensure the container exists and is positioned for absolute stacking */
 #lion_image,
 .lion-image-block,
 .lionImage.featured-lion .lion-image-block {
   position: relative !important;
   display: block !important;
-  max-width: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
 }
 
-/* Ensure all lion image layers are visible and sized appropriately */
+/* Force exact headshot size requested by user */
+.lion-image-block[data-image-type="headshot"],
+#lion_image {
+  width: 200.01px !important;
+  height: 200.01px !important;
+  min-width: 200.01px !important;
+  min-height: 200.01px !important;
+  max-width: 200.01px !important;
+  max-height: 200.01px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+/* Ensure each layered IMG inside the headshot uses the explicit size */
+.lion-image-block[data-image-type="headshot"] img {
+  width: 200.01px !important;
+  height: 200.01px !important;
+  max-width: 200.01px !important;
+  max-height: 200.01px !important;
+  object-fit: contain !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+/* Base background layer (fur/background) */
+.lion-image-block img[data-layer="background"],
+.lion-image-block img[src*="/backgrounds/"] {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 10 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  max-width: none !important;
+}
+
+/* Main base/markings/lineart/eyes/mane/nose layers */
+.lion-image-block img[src*="/bases/"],
+.lion-image-block img[src*="/markings/"],
+.lion-image-block img[src*="/lineart"],
+.lion-image-block img[src*="/eyes/"],
+.lion-image-block img[src*="/normal/"],
+.lion-image-block img[src*="/noses/"],
+.lion-image-block img[src*="/piebald/"] {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 50 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  max-width: none !important;
+}
+
+/* Decorative overlay (decor) should appear in front of the portrait but below the frame */
+.lion-image-block img[data-type="decor"],
+.lion-image-block img[src*="/battleDecors/"] {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 80 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* A general fallback to ensure any hidden IMG inside a lion block is visible */
 .lion-image-block img {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
-  max-width: 100% !important;
-  height: auto !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  max-width: none !important;
+}
+
+/* Make sure the frame pseudo-element remains on top */
+.lion-image-block[data-image-type="headshot"]::before {
+  z-index: 95 !important;
 }
 
 
+/* subtle twinkle via opacity flicker on a second, slower animation */
+body::after {
+  content: "" !important;
+  position: fixed !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  z-index: 26 !important;
+  opacity: 0.12 !important;
+  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.06) 8%, transparent 30%),
+              radial-gradient(circle at 80% 70%, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 6%, transparent 30%) !important;
+  background-repeat: no-repeat !important;
+  animation: fireflyFlicker 6s ease-in-out infinite !important;
+}
+
+@keyframes fireflyFlicker {
+  0% { opacity: 0.12; }
+  50% { opacity: 0.03; }
+  100% { opacity: 0.12; }
+}
+
+/* Respect user reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    animation: none !important;
+    opacity: 0.9 !important;
+  }
+}
 
