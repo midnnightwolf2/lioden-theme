@@ -2170,58 +2170,11 @@ body center {
   left: 0 !important;
 }
 
-/* Base background layer (fur/background) */
-.lion-image-block img[data-layer="background"],
-.lion-image-block img[src*="/backgrounds/"] {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  z-index: 10 !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  max-width: none !important;
-}
-
-/* Main base/markings/lineart/eyes/mane/nose layers */
-.lion-image-block img[src*="/bases/"],
-.lion-image-block img[src*="/markings/"],
-.lion-image-block img[src*="/lineart"],
-.lion-image-block img[src*="/eyes/"],
-.lion-image-block img[src*="/normal/"],
-.lion-image-block img[src*="/noses/"],
-.lion-image-block img[src*="/piebald/"] {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  z-index: 50 !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  max-width: none !important;
-}
-
-/* Decorative overlay (decor) should appear in front of the portrait but below the frame */
-.lion-image-block img[data-type="decor"],
-.lion-image-block img[src*="/battleDecors/"] {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  z-index: 80 !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-/* A general fallback to ensure any hidden IMG inside a lion block is visible */
+/* Ensure all lion image layers are visible */
 .lion-image-block img {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  max-width: none !important;
 }
 
 
